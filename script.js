@@ -3,7 +3,7 @@ const inputNumber = document.getElementById("number")
 const convertBtn = document.getElementById("convert-btn")
 const output = document.getElementById("output")
 
-const romanConverter =[
+const numbersArabicToRoman=[
     {
         value: 1000, romanNum: "M"
     },
@@ -31,6 +31,25 @@ const romanConverter =[
         value: 4, romanNum: "IV"
     },    {
         value: 1, romanNum: "I"
-    },
+    }
 ]
 
+const getNumber = (num)=> {
+    let arabicNumber = num.value
+    let result = ""
+    numbersArabicToRoman.forEach((number) =>{
+        while(arabicNumber >= number.value){
+            result += number.romanNum
+            arabicNumber -= number.value
+        }
+    })
+    return result
+}
+
+
+
+function handleButton(){
+    console.log(getNumber(inputNumber));
+}
+
+convertBtn.addEventListener('click', handleButton)
