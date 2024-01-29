@@ -34,7 +34,8 @@ const numbersArabicToRoman=[
     }
 ]
 
-const getNumber = (num)=> {
+
+const convertNumber = (num)=> {
     let arabicNumber = num.value
     let result = ""
     numbersArabicToRoman.forEach((number) =>{
@@ -53,3 +54,11 @@ function handleButton(){
 }
 
 convertBtn.addEventListener('click', handleButton)
+
+
+/* 
+TO DO:
+-set max input to 3999
+-set min inptut to 1
+-show output in div
+*/
