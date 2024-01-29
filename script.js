@@ -9,48 +9,72 @@ const numbersArabicToRoman=[
     },
     {
         value: 900, romanNum: "CM"
-    },    {
+    },    
+    {
         value: 500, romanNum: "D"
-    },    {
+    },    
+    {
         value: 400, romanNum: "CD"
-    },    {
+    },    
+    {
         value: 100, romanNum: "C"
-    },    {
+    },    
+    {
         value: 90, romanNum: "XC"
-    },    {
+    },    
+    {
         value: 50, romanNum: "L"
-    },    {
+    },    
+    {
         value: 40, romanNum: "XL"
-    },    {
+    },    
+    {
         value: 10, romanNum: "X"
-    },    {
+    },    
+    {
         value: 9, romanNum: "IX"
-    },    {
+    },    
+    {
         value: 5, romanNum: "V"
-    },    {
+    },    
+    {
         value: 4, romanNum: "IV"
-    },    {
+    },   
+    {
         value: 1, romanNum: "I"
     }
 ]
 
-function getNumber() {
-    let outputText = ""
+function isValidInput(num){
     switch(true){
-        case (inputNumber.value > 3999): 
-            outputText = 'Please enter a number less than or equal to 3999'
-            break;
-        case (inputNumber.value < 1 && inputNumber.value !== ""):
-            outputText = "Please enter a number greater than or equal to 1"
-            break;
-        case (inputNumber.value === ""):
-            outputText =  'Please enter a valid number'
-            break
-        default: 
-            outputText = convertNumber(inputNumber.value)
+        case (num > 3999): 
+            return 'Please enter a number less than or equal to 3999'
+
+        case (num < 1 && num !== ""):
+            return "Please enter a number greater than or equal to 1"
+            
+        case (num === ""):
+            return  'Please enter a valid number'
+        
+        default: return true
     }
-    inputNumber.value = ""
-    output.textContent = outputText
+
+}
+
+function getNumber() {
+    const inputValue = inputNumber.value
+    const isValidResult = isValidInput(inputValue)
+   
+    output.classList.remove('output-hidden')
+    
+    if(isValidResult === true){
+        output.classList.remove('output-error')
+        output.textContent = convertNumber(inputValue)
+    } else {
+        output.classList.add('output-error')
+        output.textContent = isValidResult
+    }
+    
 }
 
 const convertNumber = (num)=> {
