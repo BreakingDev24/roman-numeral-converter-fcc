@@ -34,9 +34,27 @@ const numbersArabicToRoman=[
     }
 ]
 
+function getNumber() {
+    let outputText = ""
+    switch(true){
+        case (inputNumber.value > 3999): 
+            outputText = 'Please enter a number less than or equal to 3999'
+            break;
+        case (inputNumber.value < 1 && inputNumber.value !== ""):
+            outputText = "Please enter a number greater than or equal to 1"
+            break;
+        case (inputNumber.value === ""):
+            outputText =  'Please enter a valid number'
+            break
+        default: 
+            outputText = convertNumber(inputNumber.value)
+    }
+    inputNumber.value = ""
+    output.textContent = outputText
+}
 
 const convertNumber = (num)=> {
-    let arabicNumber = num.value
+    let arabicNumber = num
     let result = ""
     numbersArabicToRoman.forEach((number) =>{
         while(arabicNumber >= number.value){
@@ -50,15 +68,9 @@ const convertNumber = (num)=> {
 
 
 function handleButton(){
-    console.log(getNumber(inputNumber));
+    getNumber();
 }
 
 convertBtn.addEventListener('click', handleButton)
 
 
-/* 
-TO DO:
--set max input to 3999
--set min inptut to 1
--show output in div
-*/
