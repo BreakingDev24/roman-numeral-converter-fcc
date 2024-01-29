@@ -3,3 +3,48 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background-color: rgba(69, 70, 59, 0.993);
+}
+
+.form { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 50px;
+    background-color: rgba(146, 148, 126, 0.705);
+
+    border: 3px solid white;
+
+    width: 550px;
+}
+
+.output-hidden {
+    visibility: hidden;
+}
+
+.output {
+    border: 5px solid rgba(36, 128, 0, 0.986);
+    background-color: rgba(140, 223, 63, 0.096);
+    padding: 20px;
+    text-align: center;
+    width: 550px;
+
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.output-error {
+    border: 5px solid rgba(128, 0, 0, 0.986);
+    background-color: rgba(223, 63, 63, 0.253);
+}
